@@ -16,13 +16,35 @@ public class SortList {
         return mergeLists(sortList(head), sortList(mid));
     }
 
-    public static ListNode findMidAndBreak(ListNode head) {
-        // homework
+    public static ListNode findMidAndBreak(ListNode head) { //double check!! confused on fuction
+        if (head == null) {
+            return null;
+        }
+
+        if (head.next == null) {
+            return null;
+        }
+
         return null;
+        ///////////////
     }
 
     public static ListNode mergeLists(ListNode list1, ListNode list2) {
-        // homework
-        return null;
+        //ListNode merge;
+
+        if (list1 == null) {
+            return list2;
+        }
+
+        if (list2 == null) {
+            return list1;
+        }
+
+        if (list1.val < list2.val) {
+            list1.next = mergeLists(list1.next, list2);
+            return list1;
+        } else  //} else if (list2.val > list1.val) { ->check for more conditions.....?
+            list2.next = mergeLists(list1, list2.next);
+            return list2;
+        }
     }
-}
